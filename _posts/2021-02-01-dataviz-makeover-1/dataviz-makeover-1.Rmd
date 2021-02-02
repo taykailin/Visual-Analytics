@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 1"
 description: |
-  This is my DataViz Makeover 1. 
+  DataViz Makeover seeks to analyze a graph and provide an improved visualization of it. In the first DataViz Makeover, I will be looking at a graph of resident labor force by age provided in the Report on Labor Force in Singapore 2009 by the Ministry of Manpower.  
 author:
   - name: Tay Kai Lin
     url: https://www.linkedin.com/in/kai-lin-tay/
@@ -10,7 +10,18 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-### Part A
+
+## Original Data Visualization
+
+The original data visualization is of **Resident Labor Force by Age in Per Cent**, and can be found  [here](https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx). A screenshot of the data visualization is also provided below:
+
+<center>
+
+![Figure 1: Original Data Visualization](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image0.png) 
+
+</center>
+
+## Part A: Critic of the graph for its clarity and aesthetics
 The graph is beautiful but confusing. 
 
 *The graph is beautiful due to the following reasons:*
@@ -31,7 +42,7 @@ The graph is beautiful but confusing.
 
 4.	**Inappropriate use of reference line**: While the intent of the reference line to put an indicator for the median age is clear, the use of a reference along the x axis is inaccurate. While each interval represents an age group, the axis cannot be assumed to have a continuous scale within each interval as the line graph does not have the granularity of data of resident labor force for every year. 
 
-### Part B
+## Part B: Suggesting an improved alternative graphical presentation
 With reference to the critics above, the following suggestions have been proposed. 
 
 1.	**Adding a Y-axis**: To correct the issue of a missing y-axis, we will input a y-axis. 
@@ -44,65 +55,125 @@ With reference to the critics above, the following suggestions have been propose
 
 The proposed alternative data visualization is as follows: 
 
-![](C:/VisualAnalytics/Images/DataVizOne/Image1.png)
+<center>
+
+![Figure 2: Sketch of Proposed Visualization](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image1.png){width=80%} 
+
+</center>
 
 The proposed visualization will contain 3 graphs. The first graph (top left) depicts the change in resident labor force from 2009 to 2019 for two age groups, which are ages 25-59 and 55 & over. The second graph (top right) depicts the change in median age of the resident labor force. Finally, the bottom graph depicts the change in resident labor force from 2009 to 2019 for all age groups. 
 
-### Part C
+## Part C: Designing the proposed data visualization using Tableau
+The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DataVizMakeover1_16117986613460/DataViz).
 
-### Part D
+## Part D: Description of Data Visualization Preparation
 This is the step-by-step description on the data vizualiation preparation.
 
 **1.	Data Preparation**
+
 The first step involves extracting the relevant data to produce the visualization. From the report, Table 2 and Table 7 are relevant for data on the median age and resident labor force, respectively. From Table 7, I extracted the columns for 2009 and 2019 into an excel sheet. I then computed the resident labor force percentage by computing the number for each age group over the total provided. I also aggregated the population numbers for ages 25 to 54 as well as 55 & over and computed the respective resident labor force percentage. The resultant table is as follows: 
 
-![](/VisualAnalytics/Images/DataVizOne/Image2.png)
- 
-Figure 1: Resident labour force numbers extracted from Table 7 and saved in Tab ‘Table 7’ of the Excel
+<center>
+
+![Figure 3: Resident labour force numbers extracted from Table 7 and saved in Tab ‘Table 7’ of the Excel](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image2.png){width=60%}
+
+</center> 
+
 Median age of the resident labor force is extracted from Table 2 as follows, without any need for further computation: 
- 
-Figure 2: Median age of resident labour force numbers extracted from Table 2 and saved in Tab ‘Table 2’ of the Excel 
-2.	Importing data into Tableau 
+
+<center>
+
+![Figure 4: Median age of resident labour force numbers extracted from Table 2 and saved in Tab ‘Table 2’ of the Excel](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image3.png){width=40%}
+
+</center>
+
+**2.	Importing data into Tableau**
+
 The excel sheet is imported into Tableau. Table 7 and Table 2 are imported as a union into the data source. The resultant table is as follows below. Columns have been renamed for clarity. 
- 
-Figure 3: Datasource in Tableau
-3.	Creating Worksheets
-3.1	Resident Labor Force for all age groups 
+
+<center>
+
+![Figure 5: Datasource in Tableau](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image4.png)
+
+</center>
+
+**3.	Creating Worksheets**
+
+*3.1	Resident Labor Force for all age groups* 
+
 To create the graph, I need to filter out the rows that are irrelevant. This is done by adding Age (Years) as a filter to only select the 12 required age groups. 
- 
-Figure 4: Filtering out the 12 age groups
-To set up the graph, I filled in the columns and rows. Under Show Me, I selected side-by-side bars. The resultant graph is as follows: 
- 
-Figure 5: Intermediate graph of the Resident Labour Force for all age groups
-From the intermediate graph, the following steps were taken to improve on the design of the graph: 
+
+<center>
+
+![Figure 6: Filtering out the 12 age groups](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image5.png){width=60%}
+
+</center>
+
+To set up the graph, I filled in the columns and rows. Under Show Me, I selected side-by-side bars. The resultant graph is as follows:
+
+<center>
+
+![Figure 7: Intermediate graph of the Resident Labour Force for all age groups](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image6.png)
+
+</center>
+
+From the intermediate graph, the following steps were taken to improve on the design of the graph:
+
 1.	Removing the x-axis labels: The x-axis labels are wordy and will be very squeezed if the words are aligned horizontally. As the legend already clearly depicts what each color represents, I removed the headers on the x-axis. 
+
 2.	Adding mark labels: Mark labels will help to identify the height of each graph. Labels are added by selecting ‘Show mark labels’ under Label. The font size is reduced to 8. To format the number as a percentage, I edited the settings under Formatting of the Pane, and changed the number format to percentage. I also reduced the decimal places to 1 and changed the alignment of the text to horizontal. 
+
 3.	Formatting the y-axis: I change the format of the scale to percentage. In addition, I renamed the y-axis as Resident Labor Force by editing the y-axis.
 
 The resultant graph is as follows: 
- 
-Figure 6: Final graph for Resident Labour Force of All Age Groups
-3.2	Resident Labor Force for ages 25 to 54 and 55 & over 
+
+<center>
+
+![Figure 8: Final graph for Resident Labour Force of All Age Groups](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image7.png)
+
+</center> 
+
+*3.2	Resident Labor Force for ages 25 to 54 and 55 & over*
+
 The steps to create this graph is like that described for all age groups. However, for this graph, the filtering of age groups is for the 2 required age groups, as seen below. 
- 
-Figure 7: Filtering of age groups for ages 25 to 54 and 55 & over
-Like the previous graph, I added mark labels (but in this case, to 1 decimal place only) and formatted the y-axis. For the x-axis, I edited the alias of the headings. The resultant graph is as follows: 
- 
-Figure 8: Final graph of the Resident Labour Force (by per cent) for ages 25 to 54 and 55 & over
 
-3.3	Resident Labor Force Median Age 
+<center>
+
+![Figure 9: Filtering of age groups for ages 25 to 54 and 55 & over](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image8.png){width=60%}
+
+</center>
+
+Like the previous graph, I added mark labels (but in this case, to 1 decimal place only) and formatted the y-axis. For the x-axis, I edited the alias of the headings. The resultant graph is as follows:
+
+<center>
+
+![Figure 10: Final graph of the Resident Labour Force (by per cent) for ages 25 to 54 and 55 & over](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image9.png){width=50%}
+
+</center>
+
+*3.3	Resident Labor Force Median Age* 
+
 As Tableau includes the header as a row, I must filter out the median age. 
- 
-Figure 9: Filtering out the median age
-Filling up the column and rows, and formatting the title, axis labels and mark labels, I derived the following graph: 
- 
-Figure 10: Final graph of the Median Age of Labour Force
 
-4.	Combining Worksheets in a Dashboard
+<center>
+
+![Figure 11: Filtering out the median age](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image10.png){width=50%}
+
+</center>
+
+Filling up the column and rows, and formatting the title, axis labels and mark labels, I derived the following graph: 
+
+<center>
+
+![Figure 12: Final graph of the Median Age of Labour Force](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-01-dataviz-makeover-1/Image11.png){width=30%}
+
+</center>
+
+**4.	Combining Worksheets in a Dashboard**
+
 To display all graphs in a single sheet, the dashboard is utilized. The graph of the resident labor force of all age groups is the widest for all the mark labels to be displayed clearly with less overlap. Hence, it is in a row of its own.  A title is also added as a descriptor for the graphs. I ensured that the axes for both graphs were of the same scale for easy comparison between both graphs. 
 
-### Part E
-Major observations from the visualization
+## Part E: Major Observations from Visualization
 
 1.	For age groups intervals of 5 from 20 to 54, resident labor force decreased from 2009 to 2019. However, for age groups of 5 from 55 onwards to 70 & over, resident labor force increased from 2009 to 2019. This reflects two very distinct trends in the resident labor force for all age groups where all age groups fall into either category, with the exception of age group 15-19 where resident labor force remained constant.
 
@@ -114,9 +185,3 @@ Major observations from the visualization
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
-
-
