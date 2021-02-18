@@ -67,7 +67,7 @@ The proposed visualization will contain 3 graphs. The first graph (top left) dep
 The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DataVizMakeover1_16117986613460/DataViz).
 
 ## Part D: Description of Data Visualization Preparation
-This is the step-by-step description on the data vizualiation preparation.
+This is the step-by-step description on the data visualization preparation.
 
 **1.	Data Preparation**
 
