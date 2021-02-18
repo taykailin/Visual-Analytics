@@ -1621,7 +1621,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><em>5.1 Creating Calculated Fields and Parameters</em></p>
 <p>Create a new worksheet and rename it as ‘Uncertainty Chart’. The first step would be to create the necessary calculated fields and parameters.</p>
 <ul>
-<li>Creating a calculated field for % strongly agree:</li>
+<li>Creating a calculated field for % strongly agree: As this visualization only focuses on the percentage of survey respondents that strongly agree, I needed to extract this proportion only. For this field to be interactive such that when the Survey Question is toggled to a particular question, values in that column would appear, if-else statements are required. When a survey question is selected, then responses that are ‘1 - Strongly agree’ in a particular column would be denoted as 1, else all other values are denoted as 0. A screenshot of the formula is below.</li>
 </ul>
 <center>
 <figure>
@@ -1629,51 +1629,58 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 </center>
 <ul>
-<li>Creating a calculated field for Prop:</li>
+<li>Creating a calculated field for Prop: Based on the numbers that strongly agree in the previous field, a proportion can be generated based on the sum of the number of records.</li>
 </ul>
 <center>
 <figure>
-<img src="Image15.PNG" style="width:80.0%" alt="Figure 16: Creating a calculated field for Prop" /><figcaption aria-hidden="true">Figure 16: Creating a calculated field for Prop</figcaption>
+<img src="Image15.PNG" style="width:60.0%" alt="Figure 16: Creating a calculated field for Prop" /><figcaption aria-hidden="true">Figure 16: Creating a calculated field for Prop</figcaption>
 </figure>
 </center>
 <ul>
-<li>Creating a calculated field for Prop_SE:</li>
+<li>Creating a calculated field for Prop_SE: For this visualization, the confidence interval is computed at 95%. To find the standard error, the proportion is multipled by 1 - proportion. This number is divided by the sum of the number of records, which is the sample size. Finally, this number would be square rooted.</li>
 </ul>
 <center>
-<img src="Image16.PNG" title="fig:" style="width:80.0%" alt="Figure 17: Creating a calculated field for Prop_SE" />
+<img src="Image16.PNG" title="fig:" style="width:60.0%" alt="Figure 17: Creating a calculated field for Prop_SE" />
 </center>
 <ul>
-<li>Creating a calculated field for Z_95%:</li>
+<li>Creating a calculated field for Z_95%: At a 95% confidence interval, Z = 1.959964 or approximately equals to 1.96. This number is input as a field.</li>
 </ul>
 <center>
-<img src="Image17.PNG" title="fig:" style="width:80.0%" alt="Figure 18: Creating a calculated field for Z_95%" />
+<img src="Image17.PNG" title="fig:" style="width:50.0%" alt="Figure 18: Creating a calculated field for Z_95%" />
 </center>
 <ul>
-<li>Creating a calculated field for Prop_Margin of Error:</li>
+<li>Creating a calculated field for Prop_Margin of Error: The margin of error is the Z value multiplied by the standard error.</li>
 </ul>
 <center>
-<img src="Image18.PNG" title="fig:" style="width:80.0%" alt="Figure 19: Creating a calculated field for Prop_Margin of Error" />
+<img src="Image18.PNG" title="fig:" style="width:50.0%" alt="Figure 19: Creating a calculated field for Prop_Margin of Error" />
 </center>
 <ul>
-<li>Creating a calculated field for Prop_Upper Limit 95%:</li>
+<li>Creating a calculated field for Prop_Upper Limit 95%: The upper limit would be the proportion plus the margin of error.</li>
 </ul>
 <center>
 <figure>
-<img src="Image19.PNG" style="width:80.0%" alt="Figure 20: Creating a calculated field for Prop_Upper Limit 95%" /><figcaption aria-hidden="true">Figure 20: Creating a calculated field for Prop_Upper Limit 95%</figcaption>
+<img src="Image19.PNG" style="width:50.0%" alt="Figure 20: Creating a calculated field for Prop_Upper Limit 95%" /><figcaption aria-hidden="true">Figure 20: Creating a calculated field for Prop_Upper Limit 95%</figcaption>
 </figure>
 </center>
 <ul>
-<li>Creating a calculated field for Prop_Lower Limit 95%:</li>
+<li>Creating a calculated field for Prop_Lower Limit 95%: The lower limit would be the proportion minus the margin of error.</li>
 </ul>
 <center>
 <figure>
-<img src="Image20.PNG" style="width:80.0%" alt="Figure 21: Creating a calculated field for Prop_Lower Limit 95%" /><figcaption aria-hidden="true">Figure 21: Creating a calculated field for Prop_Lower Limit 95%</figcaption>
+<img src="Image20.PNG" style="width:50.0%" alt="Figure 21: Creating a calculated field for Prop_Lower Limit 95%" /><figcaption aria-hidden="true">Figure 21: Creating a calculated field for Prop_Lower Limit 95%</figcaption>
 </figure>
 </center>
 <p><em>5.2 Adding elements to the visualization</em></p>
+<p>Proportion is added to Columns and Country is added to Rows. Marks is changed from Automatic to Circle. Measure Values is added to columns. Under the Measure Values pane, remove all items except for AGG(Prop_Lower Limit 95%) and AGG(Prop_Upper Limit 95%). Under Measure Values, change the Marks from Automatic to Line. In the Measure Values Marks pane, drag and drop Measure Values to Path and remove it from Color.</p>
+<p>Click on the down arrow on Measure Values and select dual axis. To synchronize the dual axis, we need to synchronize the axis that has a smaller range of values to the one with a longer range of values. In this case, the bottom x axis has the shorter range of values. Right click on the bottom x axis and select Synchronize Axis.</p>
+<p>Similar to the steps recounted under Bar Chart, the filters and paramters are added to the visualization.</p>
 <p><em>5.3 Formatting the aesthetics of the visualization</em></p>
-<p><strong>6. Preparing Dashboard</strong> <em>6.1 Adding elements to dashboard</em> To create a dashboard, click on the tab ’New Dashboard. In the left pane, adjust the Size to Automatic. Drag and drop both sheets onto the main pane.</p>
+<p>To ensure that the legend is consistent, the Circle marks representing ‘1 - Strongly agree’ need to be colored the same as that in Bar Chart. Click on the down arrow on Measure Names on the right pane &gt; Edit colors, and select the same shade of green as previously chosen. The color of the line can also be adjusted under Marks &gt; Measure Values &gt; Color. I used a dark grey color to contrast against the white background of the graph, which enhances readability.</p>
+<p>Further formatting measures are similar to those in Bar Chart - formatting of the x-axis to 1 decimal place, sorting the graph in descending order.</p>
+<p><strong>6. Preparing Dashboard</strong> <em>6.1 Adding elements to dashboard</em> To create a dashboard, click on the tab ’New Dashboard. In the left pane, adjust the Size to Automatic. Drag and drop both sheets onto the main pane side-by-side.</p>
+<p>For the interactivity of the visualization, when toggling the filters and Survey Question, both visualizations should adjust. To link the filter / parameter to both visualizations, click on the panel &gt; down arrow for more options &gt; apply to worksheets &gt; all using this data source. For the filters, we can allow multiple values in a dropdown. Thus, under down arrow for more options, select Multiple Values (Dropdown).</p>
 <p><em>6.2 Formatting aesthetics of dashboard</em></p>
+<p>For aesthetics, a title is added with a short description on how the user can navigate the visualization. As both graphs should take up about the same width and height, a blank is inserted above the graph on the left so that both visualizations can be aligned.</p>
 <h2 id="part-e-major-observations-from-visualization">Part E: Major Observations from Visualization</h2>
 <p>Distill is a publication format for scientific and technical writing, native to the web.</p>
 <p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
