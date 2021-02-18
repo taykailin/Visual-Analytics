@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 2"
 description: |
-  A short description of the post.
+    DataViz Makeover seeks to analyze a graph and provide an improved visualization of it. In the second DataViz Makeover, I will be looking at a graph of the receptiveness of survey respondents in 14 countries to Covid-19 vaccination. Data from the visualization is provided by a study by the Imperial College London.
 author:
   - name: Tay Kai Lin
     url: https://www.linkedin.com/in/kai-lin-tay/
@@ -64,7 +64,7 @@ The proposed alternative data visualization is as follows:
 The proposed visualization will contain two graphs. The graph of the left depicts the distribution of all 5 survey responses on the Likert scale. THe graph on the right depicts the proportion of 'Strongly Agree' responses and the standard error involved in sampling. The bottom section of the visualization contains the legend of the Likert scale and filters that the user can interact with to see how the parameters 'Gender' and ' Employment Status' affect both visualizations.
 
 ## Part C: Designing the proposed data visualization using Tableau
-The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DataVizMakeover1_16117986613460/DataViz).
+The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DatavizMakeover2_16136162971530/Dashboard).
 
 ## Part D: Description of Data Visualization Preparation
 
@@ -139,7 +139,7 @@ Columns should be renamed for greater clarity, and aliases should be created for
 * Values in the column for 'Country' are renamed to remove the '.csv' suffix
 * For aesthetics, 'age' and 'household' are capitalized. 
 
-**4. Preparing Bar Chart**
+**4. Preparing Diverging Stacked Bar Chart**
 
 *4.1 Creating Calculated Fields and Parameters*
 
@@ -169,11 +169,27 @@ Create a new worksheet and rename it as 'Bar Chart'. The first step would be to 
 
 </center>
 
+* Create a calculated field for Count Negative: This field helps to find the responses for disagree and strongly disagree, and record them as negative values. Neutral values are recorded as 0.5. 
+
+<center>
+
+![Figure 11: Creating a calculated field for Total Count](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image25.png){width=40%}
+
+</center>
+
+* Create a calculated field for Total Count Negative: This field helps to sum up the Count Negative field.  
+
+<center>
+
+![Figure 12: Creating a calculated field for Total Count Negative](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image22.png){width=40%}
+
+</center>
+
 * Create a calculated field for Percentage: Percentage would be used to indicate the proportions of each survey response out of the total count of survey responses for the country. 
 
 <center>
 
-![Figure 11: Creating a calculated field for Percentage](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image10.png){width=40%}
+![Figure 13: Creating a calculated field for Percentage](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image10.png){width=40%}
 
 </center>
 
@@ -181,15 +197,40 @@ Create a new worksheet and rename it as 'Bar Chart'. The first step would be to 
 
 <center>
 
-![Figure 12: Creating a calculated field for Selector](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image11.png){width=100%}
+![Figure 14: Creating a calculated field for Selector](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image11.png){width=100%}
+
+</center>
+
+* Create a calculated field for Gantt Start: This and the subsequent field are to compute the values and translate them into Gantt Percentage to be reflected on the graph
+
+<center>
+
+![Figure 15: Creating a calculated field for Gantt Start](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image23.png){width=40%}
+
+</center>
+
+* Create a calculated field for Gantt Percent
+
+<center>
+
+![Figure 16: Creating a calculated field for Gantt Percent](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image24.png){width=40%}
 
 </center>
 
 *4.2 Adding elements to the visualization*
 
-After the fields and parameter are created, the basic visualization can be created. 'Percentage' can be dragged to Columns and 'Country' can be dragged to Rows. Drag 'Selector' onto Color under Marks.
+After the fields and parameter are created, the basic visualization can be created. 'Gantt Percent' can be dragged to Columns and 'Country' can be dragged to Rows. Drag 'Selector' onto Color under Marks. Under 'Gantt Percent', select Compute Using > Selector. 
 
-Subsequently, the interactive elements (i.e. filters and parameter) can be added. Click on the down arrow on 'Survey Question' and select Show Parameter. Drag and drop 'Gender' and 'Employment Status' to the filter. Click on the down arrow on both items under the filter and select show filter. 
+Subsequently, the interactive elements (i.e. filters and parameter) can be added. Click on the down arrow on 'Survey Question' and select Show Parameter. Drag and drop 'Gender' and 'Employment Status' to the filter. Click on the down arrow on both items under the filter and select show filter. Under 'Selector', create aliases for 1 to 5 for easy readability of the reader as follows: 
+
+<center>
+
+![Figure 17: Creating aliases for the legend](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image26.png){width=60%}
+
+</center>
+
+Change the Marker from Automatic to Gantt Bar. Drag and drop 'Selector' to Color and 'Percentage' to Size. 
+
 
 *4.3 Formatting the aesthetics of the visualization*
 
@@ -197,7 +238,7 @@ The final step would be to format the aesthetics of the visualization. The first
 
 <center>
 
-![Figure 13: Creating a red-green color scale for the legend](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image12.png){width=60%}
+![Figure 18: Creating a red-green color scale for the legend](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image12.png){width=40%}
 
 </center>
 
@@ -207,7 +248,7 @@ The final step in aesthetics is to format the rows so that they would be sorted 
 
 <center>
 
-![Figure 14: Formatting the rows so that they would be sorted in the same order as the Uncertainty Graph](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image13.png){width=30%}
+![Figure 19: Formatting the rows so that they would be sorted in the same order as the Uncertainty Graph](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image13.png){width=30%}
 
 </center>
 
@@ -221,7 +262,7 @@ Create a new worksheet and rename it as 'Uncertainty Chart'. The first step woul
 
 <center>
 
-![Figure 15: Creating a calculated field for % strongly agree ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image14.png){width=100%}
+![Figure 20: Creating a calculated field for % strongly agree ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image14.png){width=100%}
 
 </center>
 
@@ -229,7 +270,7 @@ Create a new worksheet and rename it as 'Uncertainty Chart'. The first step woul
 
 <center>
 
-![Figure 16: Creating a calculated field for Prop ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image15.png){width=60%}
+![Figure 21: Creating a calculated field for Prop ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image15.png){width=60%}
 
 </center>
 
@@ -237,28 +278,28 @@ Create a new worksheet and rename it as 'Uncertainty Chart'. The first step woul
 
 <center>
 
-![Figure 17: Creating a calculated field for Prop_SE ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image16.png){width=60%}
+![Figure 22: Creating a calculated field for Prop_SE ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image16.png){width=60%}
 </center>
 
 * Creating a calculated field for Z_95%: At a 95% confidence interval, Z = 1.959964 or approximately equals to 1.96. This number is input as a field. 
 
 <center>
 
-![Figure 18: Creating a calculated field for Z_95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image17.png){width=50%}
+![Figure 23: Creating a calculated field for Z_95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image17.png){width=50%}
 </center>
 
 * Creating a calculated field for Prop_Margin of Error: The margin of error is the Z value multiplied by the standard error. 
 
 <center>
 
-![Figure 19: Creating a calculated field for Prop_Margin of Error ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image18.png){width=50%}
+![Figure 24: Creating a calculated field for Prop_Margin of Error ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image18.png){width=50%}
 </center>
 
 * Creating a calculated field for Prop_Upper Limit 95%: The upper limit would be the proportion plus the margin of error. 
 
 <center>
 
-![Figure 20: Creating a calculated field for Prop_Upper Limit 95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image19.png){width=50%}
+![Figure 25: Creating a calculated field for Prop_Upper Limit 95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image19.png){width=50%}
 
 </center>
 
@@ -266,7 +307,7 @@ Create a new worksheet and rename it as 'Uncertainty Chart'. The first step woul
 
 <center>
 
-![Figure 21: Creating a calculated field for Prop_Lower Limit 95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image20.png){width=50%}
+![Figure 26: Creating a calculated field for Prop_Lower Limit 95% ](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image20.png){width=50%}
 
 </center>
 
@@ -285,24 +326,52 @@ To ensure that the legend is consistent, the Circle marks representing '1 - Stro
 Further formatting measures are similar to those in Bar Chart - formatting of the x-axis to 1 decimal place, sorting the graph in descending order. 
 
 **6. Preparing Dashboard**
+
 *6.1 Adding elements to dashboard*
+
 To create a dashboard, click on the tab 'New Dashboard. In the left pane, adjust the Size to Automatic. Drag and drop both sheets onto the main pane side-by-side. 
 
 For the interactivity of the visualization, when toggling the filters and Survey Question, both visualizations should adjust. To link the filter / parameter to both visualizations, click on the panel > down arrow for more options > apply to worksheets > all using this data source. For the filters, we can allow multiple values in a dropdown. Thus, under down arrow for more options, select Multiple Values (Dropdown). 
 
 *6.2 Formatting aesthetics of dashboard*
 
-For aesthetics, a title is added with a short description on how the user can navigate the visualization. As both graphs should take up about the same width and height, a blank is inserted above the graph on the left so that both visualizations can be aligned. 
+For aesthetics, a title is added with a short description on how the user can navigate the visualization. As both graphs should take up about the same width and height, a blank is inserted above the graph on the left so that both visualizations can be aligned. A screenshot of the final dashboard is below:
 
+</center
+
+![Figure 27: Final Dashboard](C:/VisualAnalytics/VisualAnalytics/_posts/2021-02-10-dataviz-makeover-2/Image30.png){width=80%}
+
+</center>
 
 ## Part E: Major Observations from Visualization
+1. **Attitudes of Survey Respondents to Covid-19 and Vaccination**: In the visualization, I included 5 statements that are related to Covid-19 and/or vaccination. These statements can be categorized in the way shown below. 
+
++ A. Willingness to get vaccinated and concerns about side effects: "If a Covid-19 vaccine were made available to me this week, I would definitely get it.", "If I do not get a Covid-19 vaccine when it is available, I will regret it." and "I am worried about potential side effects of a Covid-19 vaccine."
+
++ B. Concern about Covid-19: "I am worried about getting Covid-19."
+
++ C. Trust in the government: "I believe government health authorities in my country will provide me with an effective Covid-19 vaccine." 
+
+
+There are links between the categories. For example, a country that is willing to get vaccinated is likely to have high concern about the virus, hence there is a link between categories A and B. Another example is that a country is likely to get vaccinated if they have more trust that the vaccine provided by the government is effective, hence there is a link between categories A and C. 
+
+I will highlight a few case study countries here, especially the ones that are at the top or bottom of the list for the percentage of strongly agree respondents - namely United Kingdom, Japan, Denmark and France.
+
+* United Kingdom is most willing to take the vaccine. It is least worried about the side effects of the vaccination and the most willing to get vaccinated. It is  moderately concerned about Covid-19 and have moderately high trust in their government.
+
+* Japan is worried about getting Covid-19 but concerned about the effectiveness of the vaccine. It is the country that is most worried about getting Covid-19, but also the country that has least trust in the government on the effectiveness of the vaccine and the top second country to worry about potential side effects. It is thus the bottom-most and second bottom-most country in their willingness to take the vaccine. 
+
+* Denmark has very high trust in their government. It ranks moderately low in its worry about getting Covid-19, but ranks highest in its trust in the government over an effective vaccine. It ranks second highest in its willingness to take the vaccine. 
+
+* France has very high concern about potential side effects of the vaccine and high distrust in the government. Thus, it ranks very low in its willingness to take the vaccine.
+
+2. **How gender affects survey responses**: Females tended to be less willing to take the vaccine than Males. While Females are more worried about getting Covid-19 than Males, Females are also more worried about potential side effects of the vaccine and have less trust in the government to provide an effective vaccine. The latter turned out to the be the overriding factor that resulted in Females being overall less willing to take the vaccine than Males. 
+
+3. **How employment status affects survey responses**: Out of all the employment types, retirees were the most distinct and had a noticeably much higher willingness to take the vaccine than the other groups. They also had the highest trust in the government health authorities to provide the country with an effective vaccine. 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
 
 
