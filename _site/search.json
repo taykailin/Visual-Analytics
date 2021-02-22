@@ -9,11 +9,18 @@
       "last_modified": "2021-02-01T15:27:06+08:00"
     },
     {
+      "path": "dataviz.html",
+      "title": "Dataviz Makeover",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-02-22T17:25:53+08:00"
+    },
+    {
       "path": "index.html",
       "title": "My Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-02-01T15:27:10+08:00"
+      "last_modified": "2021-02-18T13:13:30+08:00"
     }
   ],
   "collections": ["posts/posts.json"]

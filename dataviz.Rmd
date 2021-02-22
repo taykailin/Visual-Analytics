@@ -1,0 +1,9 @@
+---
+title: "Dataviz Makeover"
+site: distill::distill_website
+listing: 
+  posts:
+    - 2021-02-01-dataviz-makeover-1
+    - 2021-02-10-dataviz-makeover-2
+
+---
