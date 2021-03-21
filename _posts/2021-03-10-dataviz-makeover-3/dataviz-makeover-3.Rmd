@@ -71,7 +71,7 @@ The proposed alternative data visualization is as follows:
 As seen in Figure 2 above, the final dashboard contains 3 visualizations - 2 maps and 1 line graph. The maps help to provide a regional and country overview of the political violence and protests, whereas the line graphs provides greater insight into the progression of these events over time for a country. 
 
 ## Part C: Designing the proposed data visualization using Tableau
-The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DatavizMakeover2_16136162971530/Dashboard).
+The visualization is available in the following [here](https://public.tableau.com/profile/tay.kai.lin#!/vizhome/DataVizMakeover3_16163480067320/Dashboard).
 
 ## Part D: Description of Data Visualization Preparation
 
@@ -243,13 +243,8 @@ With that, the worksheet has been completed. A screenshot of the worksheet is be
 - Drag and drop Region Map onto the dashboard, add Line Graph below it and then add Country Map to the left. 
 - The dashboard should contain 2 filters for Country. Under the filter for Country for Country Map, click on More Options > Apply to worksheets > selected worksheets > Check Line Graph. This would enable the filter to be applied to both the map and the line graph. Thereafter, we can remove the other filter for Country. 
 - For the color scale for Region Map, click on More Options > Edit Title and rename the title as Total Events. 
-- Resize the elements within the dashboard until the final dashboard is derived as follows: 
+- Resize the elements within the dashboard until the final dashboard is derived as in the Tableau link. 
 
-<center>
-
-![Figure 12: Dashboard](C:/VisualAnalytics/VisualAnalytics/_posts/2021-03-10-dataviz-makeover-3/Image15.png){width=100%}
-
-</center>
 
 ## Part E: Major Observations from Visualization
 1. **From 2015 to 2020, the total armed conflict events that happened in a country was highest for the Philippines and lowest for Laos**: From the Region map, based on the color scale, we can infer that the total events is highest in the Philippines which has the deepest shade whereas Laos has the lowest number of events as it has the lightest shade. 
